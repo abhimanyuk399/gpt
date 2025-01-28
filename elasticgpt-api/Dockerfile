@@ -1,7 +1,7 @@
 # Start with a minimal Linux distribution
 FROM debian:bullseye-slim
 
-# Set environment variables to ensure non-interactive builds
+# Set environment variables to ensure non-interactive builds.
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install common dependencies
