@@ -1,4 +1,4 @@
-# Start with a minimal Linux distribution
+# Start with a minimal Linux distribution.
 FROM debian:bullseye-slim
 
 # Set environment variables to ensure non-interactive builds
