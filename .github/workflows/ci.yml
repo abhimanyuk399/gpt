@@ -26,24 +26,24 @@ on:
 
 
 jobs:
-  # Job 1: Install UI dependencies
-  install-ui-dependencies:
-    name: Install UI Dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+  # # Job 1: Install UI dependencies
+  # install-ui-dependencies:
+  #   name: Install UI Dependencies
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
 
 
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '21.1.0'
+  #     - name: Use Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: '21.1.0'
 
 
-      - name: Install dependencies
-        run: |
-          cd elasticgpt-ui
-          npm ci
+  #     - name: Install dependencies
+  #       run: |
+  #         cd elasticgpt-ui
+  #         npm ci
 
 
   # Job 2: Install API and Backend dependencies
@@ -76,10 +76,10 @@ jobs:
   build-docker-images:
     name: Build Docker Images
     runs-on: ubuntu-latest
-    needs: [install-ui-dependencies, install-api-and-backend-dependencies]
+    needs: [install-api-and-backend-dependencies]
     strategy:
       matrix:
-        service: [elasticgpt-ui, elasticgpt-api, elasticgpt-backend]
+        service: [elasticgpt-api, elasticgpt-backend]
     steps:
       - uses: actions/checkout@v4
 
